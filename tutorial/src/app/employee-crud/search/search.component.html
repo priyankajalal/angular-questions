@@ -1,0 +1,47 @@
+<!--<div class="ui-g-fluid">-->
+
+  <!--<p-dataTable #dt [value]="empDetailList" [paginator]="true" [rows]="100"-->
+               <!--[pageLinks]="3" [rowsPerPageOptions]="[100,100,1000]"-->
+               <!--[responsive]="true"-->
+               <!--[reorderableColumns]="true" [tableStyle]="{'table-layout':'auto'}" [scrollable]="false">-->
+    <!--&lt;!&ndash;<p-header>&ndash;&gt;-->
+
+      <!--&lt;!&ndash;<div class="ui-helper-clearfix ui-g-12 ui-md-3">&ndash;&gt;-->
+        <!--&lt;!&ndash;<input [(ngModel)]="text" placeholder="Enter Symbol" pInputText/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<button style="float:right;" type="button" class="ui-button-success" pButton icon="pi pi-check"&ndash;&gt;-->
+                <!--&lt;!&ndash;iconPos="left" label="GET Symbols"&ndash;&gt;-->
+                <!--&lt;!&ndash;(click)="getAllSymbolDetail()" [disabled]="loading">&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="ui-helper-clearfix ui-g-12 ui-md-3">&ndash;&gt;-->
+        <!--&lt;!&ndash;<button style="float:right;" type="button" class="ui-button-info" pButton icon="pi pi-check"&ndash;&gt;-->
+                <!--&lt;!&ndash;iconPos="left" label="Add New Symbol" (click)="addNewSymbol()">&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="ui-helper-clearfix ui-g-12 ui-md-3">&ndash;&gt;-->
+        <!--&lt;!&ndash;<button type="button" pButton icon="fa fa-file-text-o" iconPos="left" label="ExportToCsv"&ndash;&gt;-->
+                <!--&lt;!&ndash;(click)="dt.exportCSV()"></button>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</p-header>&ndash;&gt;-->
+
+    <!--<p-column field="name" header="Name" [sortable]="true" [filter]="true">-->
+      <!--<ng-template let-col let-empDetail="rowData" pTemplate="body">-->
+        <!--<div class="center">{{empDetail.name}}</div>-->
+        <!--&lt;!&ndash;<div class="center" *ngIf="symbolDetail.isEditable">&ndash;&gt;-->
+          <!--&lt;!&ndash;<input type="text" [(ngModel)]="symbolDetail.symbol">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--</ng-template>-->
+    <!--</p-column>-->
+
+    <!--&lt;!&ndash;<p-column field="companyname" header="Company Name" [sortable]="true" [filter]="true">&ndash;&gt;-->
+      <!--&lt;!&ndash;<ng-template let-col let-symbolDetail="rowData" pTemplate="body">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="center" *ngIf="!symbolDetail.isEditable">{{symbolDetail.companyname}}</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="center" *ngIf="symbolDetail.isEditable">&ndash;&gt;-->
+          <!--&lt;!&ndash;<input type="text" [(ngModel)]="symbolDetail.companyname">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ng-template>&ndash;&gt;-->
+    <!--&lt;!&ndash;</p-column>&ndash;&gt;-->
+
+  <!--</p-dataTable>-->
+<!--</div>-->
