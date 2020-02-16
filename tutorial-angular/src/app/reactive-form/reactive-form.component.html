@@ -1,0 +1,127 @@
+<form [formGroup]="myForm">
+
+  <div>
+    <input formControlName="name" placeholder="Your name">
+    <div *ngIf="myForm.get('name').errors && myForm.get('name').dirty" class="alert alert-danger">
+      <div *ngIf="myForm.get('name').errors.required">
+        Please provide Name
+      </div>
+      <div *ngIf="myForm.get('name').errors.minlength">
+        Please provide Name with min 4 chars
+      </div>
+      <div *ngIf="myForm.get('name').errors.validName">
+        Please provide Name starting with Mr
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <input formControlName="email" placeholder="Your Email Please">
+    <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+      <div *ngIf="myForm.get('email').errors.required">
+        Please provide Email
+      </div>
+      <div *ngIf="myForm.get('email').errors.minlength">
+        Please provide min 4 chars
+      </div>
+
+      <div *ngIf="myForm.get('email').errors.pattern">
+        Please provide Valid Email Address
+      </div>
+      <div *ngIf="myForm.get('email').errors.emailTaken">
+        😢 Oh noes, this email is already taken!
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <input formControlName="websiteUrl" placeholder="Website Url">
+
+    <div *ngIf="myForm.get('websiteUrl').errors && myForm.get('websiteUrl').dirty"
+    >
+      <div *ngIf="myForm.get('websiteUrl').errors.required">
+        Please provide Url
+      </div>
+      <div *ngIf="myForm.get('websiteUrl').errors.validUrl">
+        Please provide Valid Url starting with https and ending with .com
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <input formControlName="password" type="password">
+
+    <div *ngIf="myForm.get('password').errors && myForm.get('password').dirty"
+    >
+      <div *ngIf="myForm.get('password').errors.required">
+        Please provide Password
+      </div>
+      <div *ngIf="myForm.get('password').errors.minlength">
+        Password should have min 4 chars
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <input formControlName="confirmPassword" type="password">
+
+    <div *ngIf="myForm.get('confirmPassword').errors && myForm.get('confirmPassword').dirty">
+      <div *ngIf="myForm.get('confirmPassword').errors.required">
+        Please provide Password
+      </div>
+      <div *ngIf="myForm.get('confirmPassword').errors.confirmPassword">
+        Passsword and ConfirmPassword didn't match.
+      </div>
+    </div>
+  </div>
+
+
+  <button type="submit" [disabled]="myForm.valid" (click)="onClick()">Send</button>
+
+</form>
+<!--
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+
+
+  <input formControlName="websiteUrl" placeholder="Website Url">
+  <div
+    *ngIf="myForm.get('websiteUrl').errors &&
+      myForm.get('websiteUrl').dirty &&
+      myForm.get('websiteUrl').errors.validUrl">
+    Oops, only urls served over https and only from the .io top-level domain are accepted.
+    Talk about restrictions!
+  </div>
+
+  <input formControlName="name" placeholder="Your name">
+  <div *ngIf="myForm.get('name').errors.required">
+    Please provide a name!
+  </div>
+
+
+  <input formControlName="email" placeholder="Your email">
+  <div *ngIf="myForm.get('email').errors.required">
+    Please provide email
+  </div>
+  <div *ngIf="myForm.get('email').errors.pattern">
+    Oops, wrong pattern buddy!
+  </div>
+  <input type="password" formControlName="password">
+
+  <input type="password" formControlName="confirmPassword">
+
+  <div class="error" *ngIf="myForm.get('confirmPassword').errors &&
+   myForm.get('confirmPassword').errors.ConfirmPassword">
+    Passsword and ConfirmPassword didn't match.
+  </div>
+
+
+  <div *ngIf="myForm.controls.message.hasError('minlength')">
+    Write something longer please!
+  </div>
+
+  <button type="submit">Send</button>
+</form>
+-->
