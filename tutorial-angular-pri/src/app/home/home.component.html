@@ -1,0 +1,32 @@
+<p>******************************</p>
+
+<div>
+  <button type="button" (click)="decreaseCounter()">-</button>
+  <input type="text" [(ngModel)]="counter">
+  <button type="button" (click)="increaseCounter()">+</button>
+</div>
+
+
+<p style="color:blue">{{childMessage}}</p>
+
+
+<p>Custom Pipe : {{name | reverseStr | uppercase | paramPipe : "Miss": "Lovely" }}</p>
+<p>Paramiterized Pipe : {{name | paramPipe : "Miss": "Lovely"}}</p>
+<p>Employee1 Salary is: {{salary | customSalary}}</p>
+
+<span appShadow color="green">Test Directive</span>
+<button (click)="clickTest()"> Click me</button>
+<button (click)="testInterface()"> Test Interface</button>
+<div *ngFor="let emp of emps">
+  <tr>
+    <td>{{emp.id}}</td>
+    <td>{{emp.name}}</td>
+  </tr>
+</div>
+
+<hr>
+<div>
+  <input type="text" [(ngModel)]="empName" placeholder="Parent" />
+</div>
+
+<app-register (childEvent)="parentFunction($event)" [name]="empName"></app-register>

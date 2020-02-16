@@ -1,0 +1,19 @@
+<h2>Parent</h2>
+<h3>ViewChild example using Template Variable Reference :</h3>
+<div>
+  <input #inputRef type="text" placeholder="select"/>
+  <p #paraRef >My color is changed using ViewChild!</p>
+</div>
+
+<h3>ViewChild example using Component :</h3>
+<button type='button' (click)="increase()">Increase Counter</button>
+<button type='button' (click)="decrease()">Decrease Counter</button>
+<app-child></app-child>
+
+<h3>ViewChild example using Directive :</h3>
+<p appChangeColor >Change My Color</p>
+<div>ChangeColor:
+  <input type="radio" name="rd" (click)="changeHue('green')"/>Green
+  <input type="radio" name="rd" (click)="changeHue('cyan')"/>Cyan
+  <input type="radio" name="rd" (click)="changeHue('purple')"/>Purple
+</div>

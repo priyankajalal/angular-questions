@@ -1,0 +1,24 @@
+<button (click)="filterMaleEmp()"> Show Males Only</button>
+<button (click)="filterFemaleEmp()"> Show Females Only</button>
+
+<p>Male emps **== {{getMaleEmployeesCount()}} </p>
+<input [(ngModel)]="searchName" placeholder="Search name" (keyup)="filterByName()"   />
+<button (click)="filterByName()" >search</button>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Id</th>
+    <th>Gender</th>
+  </tr>
+
+  <tr *ngFor="let emp of filteredEmp">
+    <td>
+      <img src="./../../assets/img/{{emp.name}}.png" width="50" height="60">
+    </td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.id}}</td>
+    <td>{{emp.gender}}</td>
+  </tr>
+
+</table>

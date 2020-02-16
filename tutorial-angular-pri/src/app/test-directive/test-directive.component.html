@@ -1,0 +1,15 @@
+
+<input [(ngModel)]="cardNumber">
+<img ccLogo [cardNumber]="cardNumber" width="30" height="30"/>
+<hr>
+<div appHover style="border:1px solid red;height:100px;width:400px;" >
+  <p><b>Example of Custom Attribute Directive.</b></p>
+</div>
+<hr/>
+<div appAddChild style="border:1px solid red;height:100px;width:400px;" >
+  <p><b>Example of Custom Structural Directive 1.</b></p>
+</div>
+<hr/>
+<div *appUnless="false" style="border:1px solid red;height:100px;width:400px;" >
+  <p><b>Example of Custom Structural Directive 2.</b></p>
+</div>

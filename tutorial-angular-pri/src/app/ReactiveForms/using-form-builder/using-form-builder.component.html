@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+  <form [formGroup]="employeeForm">
+    <div>
+    <label for="fullName">Full Name</label>
+    <input formControlName = "fullName" type="text" class="form-control" id="fullName">
+    <div class="form-group" *ngIf="employeeForm.get('fullName').errors &&
+                (employeeForm.get('fullName').touched || employeeForm.get('fullName').dirty)">
+      <div *ngIf="employeeForm.get('fullName').errors.required">
+        Please provide Name
+      </div>
+      <div *ngIf="employeeForm.get('fullName').errors.minlength">
+        Please provide Name of min length 4 chars
+      </div>
+    </div>
+    </div>
+
+<!--    <div class="formGroup">-->
+<!--      <label for="email">Email</label>-->
+<!--      <input formControlName="email" type="text" class="form-control" id="email">-->
+<!--    </div>-->
+
+<!--    <div formGroupName="skills">-->
+<!--      <div class="form-group">-->
+<!--        <label for="skillName">Skill</label>-->
+<!--        <input type="text" class="form-control" id="skillName" formControlName="skillName" placeholder="Name">-->
+<!--      </div>-->
+
+<!--      <div class="form-group">-->
+<!--        <label for="experience">Experience</label>-->
+<!--        <input type="text" class="form-control" id="experience" formControlName="experienceInYears" placeholder="Experience in Years">-->
+<!--      </div>-->
+
+<!--      <div class="form-group">-->
+<!--        <label>Proficiency</label>-->
+<!--        <div>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio" formControlName="proficiency" value="beginner">Beginner-->
+<!--          </label>-->
+
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio" formControlName="proficiency" value="intermediate">Intermediate-->
+<!--          </label>-->
+
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio" formControlName="proficiency" value="advanced">Advanced-->
+<!--          </label>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <button (click)="onSubmit()" class="btn btn-primary" type="submit">Save</button>
+    <button (click)="onLoadData()" class="btn btn-primary" type="button">Load Data</button>
+
+  </form>
+</div>
