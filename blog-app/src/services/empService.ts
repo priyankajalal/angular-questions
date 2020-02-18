@@ -3,12 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {from, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Emp} from '../models/Emp'
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/filter';
-// import 'rxjs/add/operator/delay';
+
 
 @Injectable()
-export class TestService {
+export class EmpService {
   constructor(private http: HttpClient) {
   }
 

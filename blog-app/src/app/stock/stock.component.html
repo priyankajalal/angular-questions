@@ -1,0 +1,18 @@
+<!--<input (keyup)="getStockPrice($event)"/>-->
+
+<p> Below is done with observables </p>
+<input [formControl]="searchInput"/>
+<div>
+  <p>
+    Stock name : {{stockDetails?.symbol}}
+  </p>
+  <p>
+    Stock name : {{stockDetails?.name}}
+  </p>
+  <p>
+    Stock name : {{stockDetails?.price}}
+  </p>
+</div>
+<p> Below is done with settimeout </p>
+
+<input (keyup)="testTimeOut($event)"/>

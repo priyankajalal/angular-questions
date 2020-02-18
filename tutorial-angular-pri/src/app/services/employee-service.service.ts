@@ -11,7 +11,7 @@ export class EmployeeService {
     console.log(" Service Working ");
   }
 
-  employees:IEmp[] = [
+  employees: IEmp[] = [
               {"id":1,"name":"Vinod","gender":"Male"},
               {"id":2,"name":"Priyanka","gender":"Female"},
               {"id":3,"name":"Garvit","gender":"Male"}

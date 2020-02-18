@@ -1,0 +1,11 @@
+<div class="card" *ngIf="product">
+  <img src="./../assets/img/{{product?.name}}.png" width="100%" height="200">
+  <div class="container">
+    <h4 style="margin-left: 120px;"><b>{{product?.name | uppercase}}</b></h4>
+    <p style="margin-left: 130px;"><b>${{product?.price}}</b></p>
+    <p>{{product?.description}}</p>
+    <button type="button">Add to Cart</button>
+  </div>
+</div>
+
+

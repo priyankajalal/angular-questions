@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {TestService} from '../services/testService';
+import {EmpService} from '../services/empService';
 import {Observable} from "rxjs";
 import {Emp} from "../models/Emp";
 
@@ -14,11 +14,11 @@ export class AppComponent {
   //emps: Emp[] = [];
   emps: Emp[] = [];
 
-  constructor(private testService: TestService) {
+  constructor(private empService: EmpService) {
   }
 
-  test() {
-    this.testService.getEmps().subscribe(x => this.emps.push(x))
+  getEmps() {
+    this.empService.getEmps().subscribe(x => this.emps.push(x))
   }
 
 
