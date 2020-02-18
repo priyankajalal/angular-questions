@@ -9,7 +9,7 @@ import { ProductService } from './services/product.service';
 
 const routes: Routes = [
   {path:"products",component:ProductListComponent},
-  {path:"product/:id",component:ProductComponent}
+  {path:"products/:id",component:ProductComponent}
 
 ];
 

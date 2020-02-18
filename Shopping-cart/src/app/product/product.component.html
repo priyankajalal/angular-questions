@@ -4,7 +4,11 @@
     <h4 style="margin-left: 120px;"><b>{{product?.name | uppercase}}</b></h4>
     <p style="margin-left: 130px;"><b>${{product?.price}}</b></p>
     <p>{{product?.description}}</p>
+    <p>{{product?.details}}</p>
+    <p>More Details .... </p>
+
     <button type="button">Add to Cart</button>
+    <button type="button" (click)="backToProducts()">Back to Products</button>
   </div>
 </div>
 

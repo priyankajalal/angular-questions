@@ -1,3 +1,12 @@
-<span *ngFor = "let item of productList">
-  <app-product [product]="item"></app-product>
+<span *ngFor="let product of productList">
+  <div class="card">
+  <img src="./../assets/img/{{product?.name}}.png" width="100%" height="200">
+  <div class="container">
+    <h4 style="margin-left: 120px;"><b>{{product?.name | uppercase}}</b></h4>
+    <p style="margin-left: 130px;"><b>${{product?.price}}</b></p>
+    <p>{{product?.description}}</p>
+    <button type="button">Add to Cart</button>
+    <button type="button" (click)="navigateProduct(product.id)">Details</button>
+  </div>
+  </div>
 </span>
