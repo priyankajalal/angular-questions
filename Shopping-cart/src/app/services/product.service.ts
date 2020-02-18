@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IProduct, IProductDetails} from "../models/product";
+import {from, Observable} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class ProductService {
   constructor() {
   }
 
-  productList: IProduct[] = [
+  productList = [
     {
       "name": "watch",
       "id": 1,
@@ -53,9 +55,20 @@ export class ProductService {
       "details": "Apple Watch Series 1- 38mm Stainless Steel Case with RED Sport Band."
     },
   ];
+
   getProducts(): IProduct[] {
     return this.productList;
   }
+
+
+  public getProducts_Ob(): Observable<IProduct> {
+    const arraySource = from(this.productList);
+    return arraySource
+    // .pipe(
+    //   map(jsonRow => Object.assign({}, jsonRow))
+    // )
+  }
+
 
   getProduct(id: number): IProductDetails {
     let product = this.productDetailsList.filter(product => product.id == id);
@@ -63,5 +76,13 @@ export class ProductService {
       return product[0]
     }
   }
+
+  getProduct_Ob(id: number): Observable<IProductDetails> {
+    return from(this.productDetailsList)
+      .pipe(
+        filter(product => product.id == id))
+
+  }
+
 
 }

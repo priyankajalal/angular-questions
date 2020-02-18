@@ -21,11 +21,12 @@ export class ProductComponent implements OnInit {
   loadProduct(id: number) {
     if (id) {
       console.log(id)
-      this.product = this.productService.getProduct(id)
+      //this.product = this.productService.getProduct(id)
+      this.productService.getProduct_Ob(id).subscribe(x => this.product = x)
     }
   }
 
-  backToProducts(){
+  backToProducts() {
     this.router.navigate(['/products'])
   }
 
