@@ -1,0 +1,42 @@
+<p>register!</p>
+<form [formGroup]="registerForm">
+  <div id="name">
+    <label>Name</label>
+    <input formControlName="name" placeholder="Your Name">
+    <div *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)"
+         class="alert alert-danger">
+      <div *ngIf="registerForm.get('name').errors.required">
+        Name is a required field!
+      </div>
+      <div *ngIf="registerForm.get('name').errors.minlength">
+        Name should be minimum of 4 characters!
+      </div>
+      <div *ngIf="registerForm.get('name').errors.validName">
+        Please title your name with Mrs. or Mr.!
+      </div>
+    </div>
+  </div>
+
+  <div id="email">
+    <label>Email</label>
+    <input formControlName="email" placeholder="Your Email">
+    <div
+      *ngIf="registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)"
+      class="alert alert-danger">
+      <div *ngIf="registerForm.get('email').errors.required">
+        Email is a required field!
+      </div>
+      <div *ngIf="registerForm.get('email').errors.minlength">
+        Email should be minimum of 4 characters!
+      </div>
+      <div *ngIf="registerForm.get('email').errors.pattern">
+        Invalid Email pattern!
+      </div>
+      <div *ngIf="registerForm.get('email').errors.emailTaken">
+        Email Already exist in our db!
+      </div>
+    </div>
+  </div>
+
+  <button (click)="SaveUser()">Save User</button>
+</form>

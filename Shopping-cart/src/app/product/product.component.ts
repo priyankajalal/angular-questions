@@ -15,14 +15,12 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => this.loadProduct(params["id"]))
+    this.route.params.subscribe(params =>this.loadProduct(params['id']) )
   }
 
   loadProduct(id: number) {
-    if (id) {
-      console.log(id)
-      //this.product = this.productService.getProduct(id)
-      this.productService.getProduct_Ob(id).subscribe(x => this.product = x)
+    if(id){
+      this.productService.getProduct_Ob(id).subscribe(res => this.product = res);
     }
   }
 

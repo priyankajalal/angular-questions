@@ -19,16 +19,16 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.productList = [];
-    this.productService.getProducts_Ob().subscribe(x => this.setProducts(x));
+    this.productService.getProductList_Ob().subscribe(x => this.setProducts(x));
   }
 
   setProducts(x) {
-    console.log(x)
-    this.productList.push(x)
+    console.log(x);
+    this.productList.push(x);
   }
 
   navigateProduct(id) {
-    this.router.navigate(['/products/', id])
+    this.router.navigate(['/products/', id]);
   }
 
 }

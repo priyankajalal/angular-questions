@@ -61,7 +61,7 @@ export class ProductService {
   }
 
 
-  public getProducts_Ob(): Observable<IProduct> {
+  public getProductList_Ob(): Observable<IProduct> {
     const arraySource = from(this.productList);
     return arraySource
     // .pipe(

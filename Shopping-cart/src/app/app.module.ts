@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
 import { ProductService } from './services/product.service';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import { RegisterService } from './services/register.service';
+import {HttpClientModule} from "@angular/common/http";
+import {CommonService} from "./services/common.service";
 
 const routes: Routes = [
   {path:"products",component:ProductListComponent},
-  {path:"products/:id",component:ProductComponent}
-
+  {path:"products/:id",component:ProductComponent},
+  {path:"register",component:RegisterComponent},
 ];
 
 
@@ -18,13 +24,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductService],
+  providers: [ProductService,RegisterService,CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
