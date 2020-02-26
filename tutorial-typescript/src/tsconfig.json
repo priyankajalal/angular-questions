@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [ "es2017", "dom"],
+    "moduleResolution": "node"
+  },
+  "exclude": [ "node_modules" ]
+
+}

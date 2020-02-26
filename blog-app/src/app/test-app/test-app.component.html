@@ -1,0 +1,8 @@
+<input [(ngModel)]="symbolInput">
+<input [(ngModel)]="myTime">
+
+<app-news [symbol]="symbolInput" [time]="myTime"></app-news>
+<a href="/test2"> Route to test2</a>
+
+<button (click)="routeMe()">Route Me</button>
+<button (click)="routeMeWithParams()">Route Me Parameterized</button>
