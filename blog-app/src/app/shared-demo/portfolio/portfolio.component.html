@@ -1,0 +1,13 @@
+<mat-list>
+  <mat-list-item *ngFor="let position of positions">
+
+    <p>
+      <a (click)="showDetails(position)" style="color: blue;font-size: 18px">{{position.name}}</a>
+      <!--      <button (click)="showDetails(position)">{{position.name}}</button>-->
+    </p>
+    <p>{{position.ticker}}</p>
+    <p>{{position.qty}}</p>
+    <p>{{position.price}}</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>

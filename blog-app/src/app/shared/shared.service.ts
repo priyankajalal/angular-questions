@@ -1,0 +1,30 @@
+import {Injectable} from '@angular/core';
+import {Subject, Subscription} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
+import {EventData} from 'src/app/shared/event.class';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SharedService {
+  private subject$ = new Subject();
+
+  constructor() {
+  }
+
+  emit(event: EventData) {
+    this.subject$.next(event);
+  }
+
+  test(name: String, action: any) {
+    this.subject$.pipe(
+      map((e: EventData) => e.name === name)
+    ).subscribe(action)
+  }
+
+  on(eventName: string, action: any): Subscription {
+    return this.subject$.pipe(
+      filter((e: EventData) => e.name === eventName),
+      map((e: EventData) => e["value"])).subscribe(action);
+  }
+}

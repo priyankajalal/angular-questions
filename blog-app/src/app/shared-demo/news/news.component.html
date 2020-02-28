@@ -1,0 +1,9 @@
+<mat-card>
+  <h3>News</h3>
+  <div *ngFor="let ticker of tickers">
+
+    <h3>News for {{ticker}}</h3>
+    <button (click)="symbolClick(ticker)">Show Chart</button>
+  </div>
+</mat-card>
+

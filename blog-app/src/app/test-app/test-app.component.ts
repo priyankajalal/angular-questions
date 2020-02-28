@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -8,16 +8,24 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class TestAppComponent implements OnInit {
 
-  symbolInput ="AAPL";
-  myTime ="10:29";
-  constructor(private router: Router) { }
+  symbolInput = "AAPL";
+  myTime = "10:29";
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
-  routeMe(){
+
+  routeMe() {
     this.router.navigate(["/test2"])
   }
-  routeMeWithParams(){
-    this.router.navigate(["/test3","1"])
+
+  routeMeWithParams() {
+    this.router.navigate(["/test3", "1"])
+  }
+
+  SymbolClikedOnNews(event) {
+    console.log(`Some event happened on child news ${event}`)
   }
 }
