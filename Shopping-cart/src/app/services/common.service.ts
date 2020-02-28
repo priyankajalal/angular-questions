@@ -14,10 +14,24 @@ export class CommonService {
   }
 
   postData(url, data) {
-
     url = environment.baseUrl + url
     return this.http.post(url, data)
   }
 
+  putData(url, data) {
+    url = environment.baseUrl + url
+    return this.http.put(url, data)
+  }
+
+  delete(url, id) {
+    url = environment.baseUrl + url + "/" + id
+    // url =`${environment.baseUrl}${url}/${id}`
+    return this.http.delete(url)
+  }
+
+  getData(url) {
+    url = environment.baseUrl + url
+    return this.http.get(url)
+  }
 
 }

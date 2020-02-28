@@ -12,11 +12,23 @@ import {FormsModule} from '@angular/forms';
 import { RegisterService } from './services/register.service';
 import {HttpClientModule} from "@angular/common/http";
 import {CommonService} from "./services/common.service";
+import { UsersComponent } from './users/users.component';
+import { AccessoriesComponent } from './accessories/accessories.component';
+import { AccessoryDetailComponent } from './accessory-detail/accessory-detail.component';
+import { ChartComponent } from './chart/chart.component';
+import { NewsComponent } from './news/news.component';
+import { PositionsComponent } from './positions/positions.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const routes: Routes = [
   {path:"products",component:ProductListComponent},
   {path:"products/:id",component:ProductComponent},
   {path:"register",component:RegisterComponent},
+  {path:"users",component:UsersComponent},
+  {path:"accessories",component:AccessoriesComponent},
+  {path:"accessories/:id",component:AccessoryDetailComponent},
+  {path:"portfolio",component:PortfolioComponent}
+
 ];
 
 
@@ -25,7 +37,14 @@ const routes: Routes = [
     AppComponent,
     ProductListComponent,
     ProductComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsersComponent,
+    AccessoriesComponent,
+    AccessoryDetailComponent,
+    ChartComponent,
+    NewsComponent,
+    PositionsComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

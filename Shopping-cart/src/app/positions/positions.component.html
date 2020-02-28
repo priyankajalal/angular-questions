@@ -1,0 +1,17 @@
+
+  <table>
+    <tr>
+      <th>Ticker</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>PnL</th>
+    </tr>
+    <tr *ngFor="let position of positions">
+      <td (click)="onPositionEventFire(position.ticker)"><button>{{position.ticker}}</button></td>
+      <td>{{position.quantity}}</td>
+      <td>{{position.price}}</td>
+      <td>{{position.pnl}}</td>
+    </tr>
+  </table>
+
+

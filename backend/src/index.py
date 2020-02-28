@@ -14,7 +14,6 @@ users = [
   {"name": "George", "email": "george@example.com", "id": 5}
 ]
 
-
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
@@ -22,18 +21,32 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
 
+@app.route("/positions", methods=['GET'])
+def getPositions():
+  positions = dbutil.getAllPositions()
+  return jsonify(positions)
+
+@app.route("/news/<ticker>", methods=['GET'])
+def getNews(ticker):
+  sql = "select * from news where ticker='{}'".format(ticker)
+  news = dbutil.getOneRow(sql)
+  return jsonify(news)
+
+@app.route("/chart/<ticker>", methods=['GET'])
+def getChartDetail(ticker):
+  sql = "select * from chart where ticker='{}'".format(ticker)
+  detail = dbutil.getOneRow(sql)
+  return jsonify(detail)
 
 @app.route("/test", methods=['GET'])
 def getCoupouns():
   return jsonify({"a": 10})
-
 
 @app.route("/email/check/<email>", methods=['GET'])
 def checkIfEmailExist(email):
   users = dbutil.getAllUsers()
   filteredUsers = filter(lambda user: str(user["email"]) == email, users)
   return jsonify({"match": len(filteredUsers)})
-
 
 @app.route("/users", methods=['GET'])
 def getUsers():
@@ -51,33 +64,35 @@ def getUser(userId):
 
 @app.route("/users/<userId>", methods=['DELETE'])
 def deleteUser(userId):
-  # Update Users
-  return jsonify({"status": "User Deleted"})
+  sql = "Delete from users where id = {} ".format(userId)
+  dbutil.execute_query([sql])
+  return jsonify({"status": "User Deleted !", "id": userId})
 
 
-@app.route("/users/<userId>", methods=['PUT'])
+@app.route("/users/<userId>", methods=['POST'])
 def updateUser(userId):
-  # Update Users
   post_data = json.loads(request.data)
   print post_data
-
-  return jsonify({"status": "User Updated"})
+  sql = "update users set name='{}',email='{}', ssn='{}' where id={}".format(post_data['name'], post_data['email'],
+                                                                             post_data['ssn'], userId)
+  dbutil.execute_query([sql])
+  return jsonify({"status": "User Updated !"})
 
 
 @app.route("/users", methods=['POST'])
 def createUser():
-  # Update Users
   try:
     post_data = json.loads(request.data)
-
-    sql = "insert into users(name,email) values('{}','{}') ".format(post_data['name'], post_data['email'])
+    sql = "insert into users(name,email,ssn) values('{}','{}','{}') ".format(post_data['name'], post_data['email'],
+                                                                             post_data['ssn'])
     print sql
     print post_data
     dbutil.execute_query([sql])
-    return jsonify({"status": "User Created"})
+    return jsonify({"status": "User Created !"})
+
   except Exception, ex:
     print ex
-    return jsonify({"status": "Error in adding User"})
+    return jsonify({"status": "Error in adding User !"})
 
 
 def filterUsers(userId, user):

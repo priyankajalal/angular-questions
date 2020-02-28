@@ -16,11 +16,9 @@ export class RegisterService {
   checkEmailExist(email: string): Observable<boolean> {
 
     let url = environment.baseUrl + "/email/check/" + email
-    return this.http.get(url)
-      .pipe(
-        map(res =>
-          res.match
-        )
+    return this.http.get(url).pipe(
+                              map(res => res.match)
+
       )
   }
 
@@ -30,6 +28,7 @@ export class RegisterService {
       .pipe(
         map(users =>
           users.filter(user => user.email == email).length
+
         )
       )
   }
