@@ -1,0 +1,19 @@
+<div class="container">
+  <p>{{message}}</p>
+  <div class="row">
+    <div class="col-sm-6" style="border:2px solid green;padding:40px;">
+      <h4 style="color: blue">Positions</h4>
+      <app-positions (positionEventEmitter)="positionEventHanldler($event)" ></app-positions>
+    </div>
+
+    <div style="border:2px solid green;padding:40px;" class="col-sm-6">
+      <h4 style="color: blue">Chart</h4>
+      <app-chart [ticker]="ticker"></app-chart>
+    </div>
+
+    <div style="border:2px solid green;padding:40px;" class="col-sm-12">
+      <h4 style="color: blue">News</h4>
+      <app-news [ticker]="ticker"></app-news>
+    </div>
+  </div>
+</div>

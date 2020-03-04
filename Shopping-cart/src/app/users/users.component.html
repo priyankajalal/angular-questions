@@ -1,0 +1,30 @@
+<div style="margin-bottom:10px;">
+  <input [(ngModel)]="userData.name" placeholder="Enter Name">
+  <input [(ngModel)]="userData.email" placeholder="Enter Email">
+  <input [(ngModel)]="userData.ssn" placeholder="Enter SSN">
+  <button type="button" class="button" (click)="addUser()">Add User</button>
+</div>
+
+<div>
+  <h5>{{message}}</h5>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>SSN</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td><input [(ngModel)]="user.name" ></td>
+      <td><input [(ngModel)]="user.email"></td>
+      <td><input [(ngModel)]="user.ssn"></td>
+      <td>
+        <button (click)="deleteUser(user)" class="btn-danger">X</button>
+        <button (click)="updateUser(user)" class="btn-warning">Update</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

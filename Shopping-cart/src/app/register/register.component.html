@@ -20,8 +20,7 @@
   <div id="email">
     <label>Email</label>
     <input formControlName="email" placeholder="Your Email">
-    <div
-      *ngIf="registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)"
+    <div *ngIf="registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)"
       class="alert alert-danger">
       <div *ngIf="registerForm.get('email').errors.required">
         Email is a required field!
@@ -37,6 +36,50 @@
       </div>
     </div>
   </div>
+
+  <div id="ssn">
+    <label>SSN</label>
+    <input formControlName="ssn" placeholder="SSN">
+    <div *ngIf="registerForm.get('ssn').errors && (registerForm.get('ssn').touched || registerForm.get('ssn').dirty)"
+         class="alert alert-danger">
+      <div *ngIf="registerForm.get('ssn').errors.required">
+        SSN is a required field!
+      </div>
+      <div *ngIf="registerForm.get('ssn').errors.minlength">
+        SSN should be of 9 digits.
+      </div>
+      <div *ngIf="registerForm.get('ssn').errors.pattern">
+        SSN should be in the format NNN-NN-NNNN !
+      </div>
+    </div>
+  </div>
+
+  <div id="password">
+    <label>Password</label>
+    <input formControlName="password" placeholder="Password">
+    <div *ngIf="registerForm.get('password').errors && (registerForm.get('password').touched || registerForm.get('password').dirty)">
+      <div *ngIf="registerForm.get('password').errors.required">
+         Password is required!
+      </div>
+      <div *ngIf="registerForm.get('password').errors.minlength">
+         Password should be minimum of 4 characters .
+      </div>
+  </div>
+  </div>
+
+  <div id="confirmPassword">
+    <label>Confirm Password</label>
+    <input formControlName="confirmPassword" placeholder="Password">
+    <div *ngIf="registerForm.get('confirmPassword').errors && (registerForm.get('confirmPassword').touched || registerForm.get('confirmPassword').dirty)">
+      <div *ngIf="registerForm.get('confirmPassword').errors.required">
+        Please enter Password again!
+      </div>
+      <div *ngIf="registerForm.get('confirmPassword').errors.confirmPassword">
+        Password do not match!
+      </div>
+    </div>
+  </div>
+
 
   <button (click)="SaveUser()">Save User</button>
 </form>

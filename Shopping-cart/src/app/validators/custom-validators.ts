@@ -12,7 +12,20 @@ export function ValidName(control: AbstractControl) {
   return null;
 }
 
+
 export class CustomValidators {
+
+  static MatchPassword(control: AbstractControl){
+    let password = control.get('password').value;
+    let confirmPassword = control.get('confirmPassword').value;
+
+    if (password != confirmPassword){
+      control.get('confirmPassword').setErrors({confirmPassword:true})
+    }
+    else {
+      return null;
+    }
+  }
   static createValidator(registerService: RegisterService) {
     return (control: AbstractControl) => {
       return registerService.checkEmailExist(control.value)
@@ -21,7 +34,9 @@ export class CustomValidators {
             return res ? {emailTaken: true} : null;
           })
         )
-    };
+    }
   }
+
+
 
 }

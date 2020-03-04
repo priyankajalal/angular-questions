@@ -53,3 +53,8 @@ def getAllUsers():
   sql = " select * from users"
   users = getDataTable(sql)
   return users
+
+def getAllPositions():
+  sql = " select * from positions;"
+  positions = getDataTable(sql)
+  return positions

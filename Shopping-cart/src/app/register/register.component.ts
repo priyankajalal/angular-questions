@@ -19,12 +19,19 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-        "name": ['Mr Vinod', [Validators.required, Validators.minLength(4), ValidName]],
-        "email": ['v@gmail.com', [Validators.required, Validators.minLength(4), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
-          , CustomValidators.createValidator(this.registerService)
+      "name" : ['Mr Vinod', [Validators.required, Validators.minLength(4), ValidName]],
 
-        ]
-      }
+      "email" : ['v@gmail.com', [Validators.required, Validators.minLength(4), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
+          , CustomValidators.createValidator(this.registerService)],
+
+      "ssn" : ['',[Validators.required,Validators.minLength(9),Validators.pattern("^\\d{3}-\\d{2}-\\d{4}$")]],
+
+      "password" :[null,[Validators.required, Validators.minLength(4)]],
+          // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$])(?=.{9,})')]]
+
+      "confirmPassword" :[null,[Validators.required]]
+      },
+    {validator: CustomValidators.MatchPassword}
     )
   }
 
@@ -33,4 +40,5 @@ export class RegisterComponent implements OnInit {
     this.commonService.postData("/users", this.registerForm.value).subscribe(res => console.log(res))
 
   }
+
 }

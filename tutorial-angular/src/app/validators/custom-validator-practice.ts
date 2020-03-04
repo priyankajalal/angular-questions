@@ -21,6 +21,8 @@ export class CustomValidators {
 
     if (password != confirmPassword ){
       control.get('confirmPassword').setErrors({confirmPassword: true});
+    }else {
+      return null;
     }
   }
 
