@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="../js/my.js"></script>
+<script src="../js/my-controller.js"></script>
+
+<body>
+    <div ng-app="app1" ng-controller="myCtrl1">
+        <label>My Name</label>
+        <input type="text" ng-model="name">
+        <p>My Name is {{name}}</p>
+        <p ng-bind="name"></p>
+        <h1>Hello {{name | uppercase }}</h1>
+        <button ng-click="helloName()">Click</button>
+        <div return-Template></div>
+        <ul ng-repeat="emp in employees| orderBy:'country' | filter : 'a' | limitTo : 3 ">
+            <li>{{emp.name}}:{{emp.country}}</li>
+        </ul>
+
+        <input type="text" ng-model="userAlphabet" placeholder="Enter character">
+        <ul>
+            <li ng-repeat="name in candidates | filter: userAlphabet">{{name}}</li>
+        </ul>
+
+
+
+    </div>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>Name : <input type="text" ng-model="firstName"></p>
+        <p>Name : <input type="text" ng-model="name"></p>
+        <!-- <h1>Hello {{name}}</h1> -->
+        <button ng-click="helloName()"> Click Me for Hello</button>
+    </div>
+
+</body>
+
+</html>
