@@ -1,3 +1,6 @@
+// Event Bubbling and capturing video
+// https://www.youtube.com/watch?v=sfKDOOJgbSI
+
 // By default, every element of HTML is child of the window object.
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -38,6 +41,7 @@ Summary:
        console.log("child clicked")
      };
      fn2 = ()=> { p2.innerText = "Clicked with addEventListener 2"};
+     // true sets for event capturing , default is bubbling (down to up)
       btn1.addEventListener('click', fn1,true);
       parent1.addEventListener('click', ()=>{console.log("parent clicked")},true);
       btn1.addEventListener('click', fn2);
