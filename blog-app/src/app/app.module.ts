@@ -28,7 +28,8 @@ import {PortfolioService} from "./shared-demo/service/portfolioService";
 import { NewsComponent } from './shared-demo/news/news.component';
 import {MaterialMyModule} from "./modules/material-my.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherService } from '../services/weatherService';
 export const routes: Routes = [
   {path: 'stock', component: StockComponent},
   {path: 'jokes', component: JokeListComponentComponent},
@@ -37,6 +38,7 @@ export const routes: Routes = [
   {path: 'test3/:id', component: Test3Component},
   {path: 'view-child', component: ViewChildDemoComponent},
   {path: 'shared', component: HomeComponent},
+  {path: 'weather', component: WeatherComponent}
 
 ];
 
@@ -58,7 +60,8 @@ export const routes: Routes = [
     HomeComponent,
     PortfolioComponent,
     ChartComponent,
-    NewsComponent
+    NewsComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ export const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [EmpService, StockService, SharedService, PortfolioService],
+  providers: [EmpService, StockService, SharedService, PortfolioService,WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

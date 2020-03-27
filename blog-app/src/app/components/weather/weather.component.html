@@ -1,0 +1,19 @@
+<h1>
+  Weather data
+</h1>
+
+<p>
+  humidity= {{weatherData?.weather.humidity}}
+</p>
+<p>
+  temprature = {{weatherData?.weather.temprature}}
+</p>
+
+
+<h1>
+  Population data
+</h1>
+
+<p>
+  population= {{ (populationData$ | async)?.population }}
+</p>
