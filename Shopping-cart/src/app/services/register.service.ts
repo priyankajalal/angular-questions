@@ -13,23 +13,23 @@ export class RegisterService {
   constructor(private http: HttpClient) {
   }
 
-  checkEmailExist(email: string): Observable<boolean> {
+  //temporarily commented
 
-    let url = environment.baseUrl + "/email/check/" + email
-    return this.http.get(url).pipe(
-                              map(res => res.match)
-
-      )
-  }
-
-
-  checkEmailExist_Local(email: string): Observable<boolean> {
-    return this.http.get('assets/users.json')
-      .pipe(
-        map(users =>
-          users.filter(user => user.email == email).length
-
-        )
-      )
-  }
+  // checkEmailExist(email: string): Observable<boolean> {
+  //
+  //   let url = environment.baseUrl + "/email/check/" + email
+  //   return this.http.get(url).pipe(
+  //                             map(res => res.match)
+  //   )
+  // }
+  //
+  //
+  // checkEmailExist_Local(email: string): Observable<boolean> {
+  //   return this.http.get('assets/users.json')
+  //     .pipe(
+  //       map(users =>
+  //         users.filter(user => user.email == email).length
+  //       )
+  //     )
+  // }
 }

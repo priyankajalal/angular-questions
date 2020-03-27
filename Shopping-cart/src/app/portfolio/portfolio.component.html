@@ -1,5 +1,5 @@
 <div class="container">
-  <p>{{message}}</p>
+<!--  <p>{{message}}</p>-->
   <div class="row">
     <div class="col-sm-6" style="border:2px solid green;padding:40px;">
       <h4 style="color: blue">Positions</h4>
@@ -16,4 +16,13 @@
       <app-news [ticker]="ticker"></app-news>
     </div>
   </div>
+
+  <h4>Examples to change Input value to Uppercase</h4>
+  <input appUppercase [name]="name" type="text" placeholder="Enter Name" [(ngModel)]="name">
+
+  <div>
+    <input id="lastName" type="text" placeholder="Last Name" [(ngModel)]="name">
+    <label for="lastName">{{name | customUppercase}}</label>
+  </div>
+
 </div>

@@ -10,13 +10,13 @@ import {filter, map} from "rxjs/operators";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   private subject$ = new Subject();
 
   constructor(private portfolioService: PortfolioService) {
   }
 
   ngOnInit() {
-
     this.subject$
       .pipe(
         filter((e: PortfolioEvent) => e.name === "Test"),

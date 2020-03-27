@@ -10,7 +10,7 @@ export class ChartComponent implements OnInit {
 
   @Input() ticker:string;
 
-  chartDetail:any;
+  chartDetail:any="";
   message:string = "I am a message from child Chart using ViewChild!";
 
   constructor(private commonService:CommonService) { }

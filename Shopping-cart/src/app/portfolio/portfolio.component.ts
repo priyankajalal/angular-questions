@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ChartComponent} from "../chart/chart.component";
+import {CustomUppercasePipe} from "../pipe/custom-uppercase.pipe";
+
 
 @Component({
   selector: 'app-portfolio',
@@ -8,7 +10,11 @@ import {ChartComponent} from "../chart/chart.component";
 })
 export class PortfolioComponent implements AfterViewInit {
 
+  // @ts-ignore
   @ViewChild(ChartComponent) childChartRef:ChartComponent ;
+
+  name:string;
+  lastname:string;
 
   constructor() { }
 
